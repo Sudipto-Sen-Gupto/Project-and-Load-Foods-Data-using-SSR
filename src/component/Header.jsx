@@ -3,12 +3,16 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <div className='flex justify-between p-4'>
-            <img src="/food.png" alt="Food" className='h-10 w-10' />
+        <div className='flex justify-between items-center p-4 bg-stone-700'>
+          
+          <div className='flex items-center p-2'>
+              <img src="/food.png" alt="Food" className='h-15 w-15' />
+              <h1 className='text-2xl font-bold p-4'>Spicy Eatery</h1>
+          </div>
 
             <div>
-                <Link className='btn' href={'/'}>Home</Link>
-                <Link className='btn' href={'/menu'}>Menu</Link>
+                <Link className='btn' href={'/food'}>Food</Link>
+                <Link className='btn' href={'/reviews'}>Reviews</Link>
             </div>
         </div>
     );
