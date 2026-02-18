@@ -3,6 +3,8 @@ import React from 'react';
 
  const foodData=async()=>{
     const data=await fetch('https://taxi-kitchen-api.vercel.app/api/v1/foods/random');
+
+    await new Promise(resolve=> setTimeout(resolve,2000))
     const res=await data.json();
     return res.foods || [];
  }
