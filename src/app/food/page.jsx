@@ -1,3 +1,4 @@
+import CardItems from '@/component/CardItems';
 import FoodCards from '@/component/FoodCards';
 import React from 'react';
 
@@ -15,11 +16,18 @@ const Food = async() => {
         <div className='mt-10'>
         <h1 className='text-2xl font-bold text-cyan-600 text-center'>This is food section : <span className='text-rose-400'>{foods?.length ||0}</span></h1>
             
-            <div className='grid grid-cols-1 md:grid-cols-4 gap-10 p-4 mt-5'>
+           <div className='flex'>
+             <div className='flex-4 grid grid-cols-1 md:grid-cols-3 gap-10 p-4 mt-5'>
                 {
                     foods?.map(food=><FoodCards key={food.id} food={food}></FoodCards>)
                 }
             </div>
+
+            <div className= 'flex-1 p-6 mt-8 border-2 border-cyan-500 h-300'>
+                
+              <CardItems></CardItems>
+            </div>
+           </div>
         
         </div>
     );

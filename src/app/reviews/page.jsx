@@ -31,10 +31,12 @@ const reviews = () => {
         <div className='mt-10'>
             <h1 className='text-3xl font-bold text-center  '>This is reviews section ({reviews.length})</h1>
 
-            <div className='grid grid-cols-1 md:grid-cols-4 gap-10 mt-10 p-10'>
+           
+                <div className='flex-1 grid grid-cols-1 md:grid-cols-4 gap-10 mt-10 p-10'>
                 {
                     reviews.map(review=><ReviewCard key={review.id} review={review}></ReviewCard>)
                 }
+            
             </div>
         </div>
     );
