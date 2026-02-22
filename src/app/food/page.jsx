@@ -1,20 +1,27 @@
 import CardItems from '@/component/CardItems';
 import FoodCards from '@/component/FoodCards';
 import React from 'react';
+import Input from '../inputSearch/Input';
 
- const foodData=async()=>{
-    const data=await fetch('https://taxi-kitchen-api.vercel.app/api/v1/foods/random');
+ const foodData=async(search)=>{
+    const data=await fetch(`https://taxi-kitchen-api.vercel.app/api/v1/foods/random?search=${search}`);
 
     await new Promise(resolve=> setTimeout(resolve,2000))
     const res=await data.json();
     return res.foods || [];
  }
 
-const Food = async() => {
-    const foods=await foodData();
+const Food = async({searchParams}) => {
+    const {search=""}=await searchParams;
+    // console.log(search);
+    const foods=await foodData(search);
     return (
         <div className='mt-10'>
         <h1 className='text-2xl font-bold text-cyan-600 text-center'>This is food section : <span className='text-rose-400'>{foods?.length ||0}</span></h1>
+
+        <div className='flex justify-center mt-5 '>
+            <Input></Input>
+        </div>
             
            <div className='flex'>
              <div className='flex-4 grid grid-cols-1 md:grid-cols-3 gap-10 p-4 mt-5'>
