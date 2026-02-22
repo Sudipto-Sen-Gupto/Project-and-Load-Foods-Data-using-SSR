@@ -4,7 +4,7 @@ import React from 'react';
 import Input from '../inputSearch/Input';
 
  const foodData=async(search)=>{
-    const data=await fetch(`https://taxi-kitchen-api.vercel.app/api/v1/foods/random?search=${search}`);
+    const data=await fetch(`https://taxi-kitchen-api.vercel.app/api/v1/foods/random?search=${search}`,{next:{revalidate:5}});
 
     await new Promise(resolve=> setTimeout(resolve,2000))
     const res=await data.json();
