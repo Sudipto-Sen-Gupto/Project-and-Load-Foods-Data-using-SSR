@@ -1,8 +1,14 @@
 import React from 'react';
 
+
+ export function generateStaticParams() {
+  return [{ id: '53019' }, { id: '52839' }, { id: '52965' }]
+}
+
   const FoodLayout=async(id)=>{
     const foods=await fetch(`https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`);
     const res =await foods.json();
+    console.log(res.details);
     return res.details
   }
 
@@ -11,7 +17,7 @@ const page = async({params}) => {
     console.log(id);
     const food= await FoodLayout(id);
    
-    if(!food ||food.id!=id){
+    if(!food ||Number(food.id)!==Number(id)){
         return <div>Food Not Found</div>
     }
 

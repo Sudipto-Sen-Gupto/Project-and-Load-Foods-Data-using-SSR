@@ -4,7 +4,7 @@ import CartButton from "./CartButton";
 
 const FoodCards = ({food}) => {
   
-
+      
   return (
     <div className=" bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
       
