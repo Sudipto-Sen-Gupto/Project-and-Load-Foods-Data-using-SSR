@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import CartButton from "./CartButton";
+import Image from "next/image";
 
 const FoodCards = ({food}) => {
   
@@ -10,11 +11,15 @@ const FoodCards = ({food}) => {
       
       {/* Image Section */}
       <div className="relative">
-        <img
+        {/* <img
           src={food.foodImg}
           alt={food.title}
           className="w-full h-56 object-cover"
-        />
+        /> */}
+
+        <Image   src={food.foodImg}
+          alt={food.title}
+          className="w-full h-56 object-cover" height={400} width={400} />
         <span className="absolute top-3 left-3 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
           {food.category}
         </span>

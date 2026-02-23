@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const Banner = () => {
@@ -6,9 +7,13 @@ const Banner = () => {
       
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover  bg-center"
-        style={{ backgroundImage: "url('/restaurant.jpg')" }}
-      ></div>
+        className="absolute inset-0 bg-cover  bg-center  h-[400px] w-full md:h-[800px]"
+      
+      >
+        <Image src={"/restaurant.jpg"} alt="restaurant picture"  fill
+        priority
+        className="object-cover" />
+      </div>
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black opacity-60"></div>
