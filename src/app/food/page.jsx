@@ -3,6 +3,10 @@ import FoodCards from '@/component/FoodCards';
 import React from 'react';
 import Input from '../inputSearch/Input';
 
+export const metadata={
+    title:"Food Section",
+    description:"This is food section of spice eatery"
+}
  const foodData=async(search)=>{
     const data=await fetch(`https://taxi-kitchen-api.vercel.app/api/v1/foods/random?search=${search}`,{next:{revalidate:5}});
 
