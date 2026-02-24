@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Pacifico } from "next/font/google";
 import "./globals.css";
 import Header from "@/component/Header";
 import CartProvider from "@/Context/CartProvider";
@@ -13,6 +13,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const pacifico=Pacifico({
+  weight:"400",
+  subsets:["Pacifico"]
+})
+
 export const metadata = {
   title: {
           default:"Spice Eatery",
@@ -25,7 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${pacifico.className} antialiased`}
       >
 
         <header>

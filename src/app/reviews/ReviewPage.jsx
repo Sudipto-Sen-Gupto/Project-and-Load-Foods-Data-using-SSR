@@ -3,8 +3,12 @@
 import ReviewCard from '@/component/ReviewCard';
 import React, { useEffect, useState } from 'react';
 import ReviewLoading from './ReviewLoading';
+import { Noto_Serif_Bengali } from 'next/font/google';
 
-
+const banglaFont=Noto_Serif_Bengali({
+    weight:"400",
+    subsets:["bangla"]
+})
 
 const ReviewPage = () => {
 
@@ -30,7 +34,7 @@ const ReviewPage = () => {
     }
     
     return (
-        <div className='mt-10'>
+        <div className={`mt-10 ${banglaFont.className}`}>
             <h1 className='text-3xl font-bold text-center  '>This is reviews section ({reviews.length})</h1>
 
            
