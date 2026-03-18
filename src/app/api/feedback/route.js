@@ -13,7 +13,7 @@ export async function GET(request){
 
 export async function POST(request){
 
-    const {message}=await request.json();
+    const {message,Food}=await request.json();
 
     if(!message || typeof message !=="string"){
         return Response.json({
@@ -24,7 +24,7 @@ export async function POST(request){
         
     //   const newFeedback={message,id:feedBack.length+1}
 
-    const newFeedback={message,date:new Date().toISOString()};
+    const newFeedback={message,date:new Date().toISOString(),Food};
      const result =await feedBack.insertOne(newFeedback);
 
      return Response.json(result)

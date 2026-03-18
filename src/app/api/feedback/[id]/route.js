@@ -2,9 +2,11 @@ import { connect } from "@/app/lib/mongoDB";
 // import { feedback } from "../../route";
 import { ObjectId } from "mongodb";
 
+const feedBack=await connect("feedbacks");
+
 export async function GET(request,{params}){
       
-     const feedBack=await connect("feedbacks");
+     
 
     const {id}=await params;
          
@@ -19,6 +21,16 @@ export async function GET(request,{params}){
          
     const result=await feedBack.findOne(query);
     return Response.json(result);
+
+    
       
    
+}
+
+export async function DELETE(request,{params}){
+         const {id}=await params;
+         const query={_id:new ObjectId(id)};
+
+         const result =await feedBack.deleteOne(query);
+         return Response.json (result)
 }
