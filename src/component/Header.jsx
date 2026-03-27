@@ -17,6 +17,7 @@ const Header = () => {
             <div>
                 <Link prefetch={false} className='btn' href={'/food'}>Food</Link>
                 <Link className='btn' href={'/reviews'}>Reviews</Link>
+                <Link className='btn' href={'/feedback'}>Feedback</Link>
             </div>
         </div>
     );
