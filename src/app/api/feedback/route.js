@@ -1,4 +1,5 @@
 import { connect } from "@/app/lib/mongoDB";
+import { revalidatePath } from "next/cache";
 
 
   const feedBack=await connect("feedbacks");
@@ -26,7 +27,7 @@ export async function POST(request){
 
     const newFeedback={message,date:new Date().toISOString(),Food};
      const result =await feedBack.insertOne(newFeedback);
-
+      revalidatePath('/feedback')
      return Response.json(result)
            
     // return Response.json({

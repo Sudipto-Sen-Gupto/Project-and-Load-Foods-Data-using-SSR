@@ -29,8 +29,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${pacifico.className} antialiased`}
+      <body className={`${pacifico.className} antialiased`}
       >
 
         <header>
@@ -40,7 +39,9 @@ export default function RootLayout({ children }) {
 
         <main>
 
-          <CartProvider>{children}</CartProvider>
+          <CartProvider>{children}
+            
+          </CartProvider>
         </main>
         
       </body>
