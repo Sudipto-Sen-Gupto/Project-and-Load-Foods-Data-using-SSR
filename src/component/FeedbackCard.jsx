@@ -7,8 +7,16 @@ const FeedbackCard = ({card}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState({ ...data });
 
-  const handleDelete = () => {
+  const handleDelete =async () => {
     alert("Deleted! Connect this to your Next.js API route.");
+    const deleteFeedback= await fetch(`/api/feedback/${data._id}`,{
+      method:'DELETE'
+      
+    })
+    const res=await deleteFeedback.json();
+
+    console.log(res);
+    return res;
   };
 
   const handleSave = () => {

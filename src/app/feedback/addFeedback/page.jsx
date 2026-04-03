@@ -3,8 +3,10 @@ import React from 'react';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 const page = () => {
+   const router=useRouter();
 
     const feedbackSubmit=async(e)=>{
         e.preventDefault();
@@ -22,6 +24,7 @@ const page = () => {
         console.log(data);
         if(data.insertedId){
             toast("Feedback submitted successfully");
+            router.push("/feedback")
         }
     }
     return (
@@ -35,7 +38,7 @@ const page = () => {
                      <br />
                    <h1 className='text-2xl'>Message:</h1> <textarea name="message" id="" cols={22} rows={10}  className='border-2 border-blue-500  px-20' required ></textarea>
                         <br />
-                 <div className='text-center'>  <button className='btn '>Submit</button></div>
+                 <div className='text-center'>  <button className='btn'>Submit</button></div>
             </form>
         </div>
         <ToastContainer/>
