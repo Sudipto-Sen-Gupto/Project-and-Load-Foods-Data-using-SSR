@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation';
 import React from 'react';
 
 
@@ -32,7 +33,8 @@ const page = async({params}) => {
     const food= await FoodLayout(id);
    
     if(!food ||Number(food.id)!==Number(id)){
-        return <div>Food Not Found</div>
+        // return <div>Food Not Found</div>
+        redirect('/food')
     }
 
       const embedUrl = food?.video
