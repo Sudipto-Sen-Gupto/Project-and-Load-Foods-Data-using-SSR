@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 
-const page = () => {
+const Page = () => {
    const router=useRouter();
 
     const feedbackSubmit=async(e)=>{
@@ -13,18 +13,19 @@ const page = () => {
         const Food=e.target.Food.value;
         const message=e.target.message.value;
         console.log(Food,message);
-        const res=await fetch('/api/feedback',{
+        const res=await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/feedback`,{
             method:'POST',
             headers:{
-                "Content-type":"application/json"
+                "Content-Type":"application/json"
             },
             body:JSON.stringify({Food,message})
         });
         const data=await res.json();
-        console.log(data);
+        // console.log(data);
         if(data.insertedId){
             toast("Feedback submitted successfully");
             router.push("/feedback")
+           
         }
     }
     return (
@@ -47,4 +48,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

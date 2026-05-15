@@ -2,14 +2,29 @@ import FeedbackCard from '@/component/FeedbackCard';
 import Link from 'next/link';
 import React from 'react';
 
- const getFeedbackData=async()=>{
-    const newData=await fetch("http://localhost:3000/api/feedback",{
-      cache:'force-cache',
-      next:{revalidate:10}
-    });
-    const data=newData.json();
-    return data
- }
+ const getFeedbackData = async () => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER}/api/feedback`,
+      {
+        next: { revalidate: 10 },
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch feedback data");
+    }
+
+    const data = await res.json();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+
+    // prevents build crash
+    return [];
+  }
+};
 
 const Feedback = async() => {
       const feedbackData=await getFeedbackData()
